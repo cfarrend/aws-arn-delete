@@ -7,4 +7,6 @@ jobs:
 
     steps:
       - checkout
-      - run: ./batect development-env
+      - run: ./batect setup
+      - run: ./batect build
+      - run: ./batect test
