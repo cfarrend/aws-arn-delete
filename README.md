@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/cfarrend/aws-arn-delete.svg?style=svg)](https://circleci.com/gh/cfarrend/aws-arn-delete)
+
 # aws-arn-delete
 Ambitious attempt at deleting AWS resources by using Amazon Resource Name (ARN) format
 
