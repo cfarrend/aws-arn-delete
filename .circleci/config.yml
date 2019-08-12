@@ -7,4 +7,4 @@ jobs:
 
     steps:
       - checkout
-      - run: ./batect development-en
+      - run: ./batect development-env
