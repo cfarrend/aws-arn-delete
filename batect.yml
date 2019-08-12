@@ -1,0 +1,15 @@
+project_name: aws-arn-delete
+
+containers:
+  build-env:
+    image: python:3.7.4
+    command: echo 'hello'
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+tasks:
+  development-env:
+    description: Run an isolated, local Docker environment with all dependencies installed
+    run:
+      container: build-env
