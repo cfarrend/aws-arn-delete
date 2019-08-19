@@ -7,19 +7,24 @@ containers:
       - local: .
         container: /code
         options: cached
+      - local: .pip_cache
+        container: /pip
+        options: cached
+    environment:
+      PIP_CACHE_DIR: /pip
 tasks:
   setup:
     description: Download all dependencies used by the application.
     group: Setup tasks
     run:
       container: build-env
-      command: echo 'setup'
+      command: poetry install
   build:
     description: Builds the application
     group: Build tasks
     run:
       container: build-env
-      command: echo 'build'
+      command: poetry build
   test:
     description: Runs code tests
     group: Test tasks
@@ -31,4 +36,10 @@ tasks:
     group: Utility tasks
     run:
       container: build-env
-      command: /bin/sh
+      command: /bin/bash
+  clean:
+    description: Deletes all generated files and folders
+    group: Utility tasks
+    run:
+      container: build-env
+      command: rm -rf aws_arn_delete.egg-info .pip_cache dist .tox
